@@ -56,14 +56,7 @@ namespace truYum.Controllers
         [Route("menuitems/create")]
         public IActionResult Create(MenuItem menuItem)
         {
-            //var item = new MenuItem()
-            //{
-            //    Name = menuItem.Name,
-            //    FreeDelivery = menuItem.FreeDelivery,
-            //    DateOfLaunch = menuItem.DateOfLaunch,
-            //    CategoryId = menuItem.CategoryId
-            //};
-
+            //ModelState.IsValid
             _context.MenuItem.Add(menuItem);
             _context.SaveChanges();
 

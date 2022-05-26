@@ -10,6 +10,9 @@
 @if(!Model.Any())
 {
     <p>No items in cart</p>
+    <p>
+    <a asp-controller="MenuItems" asp-action="Index" asp>View Menu Items</a>
+    </p>
 }
 else
 {
@@ -17,20 +20,15 @@ else
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FreeDelivery)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MenuItemId)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -38,24 +36,17 @@ else
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FreeDelivery)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MenuItemId)
+                @Html.DisplayFor(modelItem => item.Price)
             </td>
+            
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             </td>
         </tr>
 }
